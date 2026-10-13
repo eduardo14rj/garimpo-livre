@@ -13,7 +13,7 @@ O plano e o checklist estão em [docs/plano-v4.md](docs/plano-v4.md). Fixtures s
 ```powershell
 npm run test:extractor
 npm run test:ui
-npm run build
+npm run build:web
 $env:CARGO_TARGET_DIR = (Join-Path $PWD 'src-tauri/target-codex-offline')
 cargo test --manifest-path src-tauri/Cargo.toml
 cargo clippy --manifest-path src-tauri/Cargo.toml -- -D warnings
@@ -38,6 +38,23 @@ npm run tauri dev
 O comando `npm run dev` abre somente a interface no navegador. Para iniciar o aplicativo desktop, use `npm run tauri dev`. Se a porta Vite padrão estiver ocupada, o runner escolhe uma porta livre; não encerre outro processo do usuário para liberar a porta.
 
 O desenvolvimento no Windows requer Rust com toolchain MSVC, Microsoft C++ Build Tools com **Desktop development with C++** e WebView2. Consulte os [pré-requisitos oficiais do Tauri](https://v2.tauri.app/start/prerequisites/).
+
+## Gerar e instalar a versão de produção
+
+Com Node.js 22.12 ou superior, Rust MSVC e as ferramentas C++ x64 instaladas, gere o instalador e a versão portable:
+
+```powershell
+npm install
+npm run build
+```
+
+O build executa as verificações de TypeScript, extração e interface, os testes Rust e o Clippy. Depois empacota o app para Windows x64 e grava quatro arquivos em `release/<versão>/`: o instalador NSIS, o executável portable, `SHA256SUMS.txt` e `BUILD_INFO.txt`. Se o Visual Studio estiver instalado, o script carrega o ambiente C++ x64 automaticamente. `npm run build:web` gera somente o frontend; `npm run build:fast` gera a versão de produção sem executar os testes.
+
+Execute `GarimpoLivre_<versão>_x64-setup.exe` para instalar no usuário atual, sem solicitar acesso de administrador. O instalador fica em português do Brasil e cria um atalho no Menu Iniciar. Se o Windows SmartScreen mostrar “O Windows protegeu o computador”, selecione **Mais informações → Executar assim mesmo**; esta versão não tem assinatura de código.
+
+O instalador inclui o bootstrapper do WebView2. Windows 10/11 atualizado já inclui o runtime; se ele estiver ausente, a instalação do runtime precisa de conexão com a internet. O executável `GarimpoLivre_<versão>_x64-portable.exe` requer WebView2 instalado.
+
+Buscas, histórico, sessões das lojas e perfil WebView ficam em `%APPDATA%\com.eduardo.garimpolivre\`. Atualizar instalando uma nova versão por cima preserva esses dados. Desinstalar não os remove. O executável portable usa a mesma pasta de dados.
 
 ## Coleta e limites
 

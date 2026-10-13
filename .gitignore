@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+release/
+src-tauri/target/
 src-tauri/target-codex-offline/
 
 # Editor directories and files

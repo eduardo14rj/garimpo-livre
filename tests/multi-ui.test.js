@@ -47,7 +47,7 @@ test("ranking parcial tolera falha, atualiza por loja, filtra e não exibe campo
     await clicar(botao(tela.el,"3 ofertas"));assert.equal(tela.el.querySelectorAll("[data-offer-id]").length,3);
     assert.equal(tela.el.querySelectorAll("[data-store-point]").length,3);
     await mudar(tela.el.querySelector('[aria-label="Filtrar por loja"]'),"ml");assert.equal(tela.el.querySelectorAll("[data-offer-id]").length,1);assert.ok(tela.el.querySelector('[data-offer-id="ml:1"]'));assert.equal(tela.el.querySelectorAll("[data-store-point]").length,1);
-    assert.deepEqual([...tela.el.querySelectorAll(".multi-table thead th")].map(x=>x.textContent),["Oferta","Preço","Frete","Score / ações"]);
+    assert.deepEqual([...tela.el.querySelectorAll(".multi-table thead th")].map(x=>x.textContent),["Oferta","Preço","Frete","Avaliação","Score / ações"]);
   }finally{await tela.fechar();}assert.equal([...fake.listeners.values()].reduce((n,s)=>n+s.size,0),0);
 });
 

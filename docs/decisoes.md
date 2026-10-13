@@ -1,5 +1,13 @@
 # Decisões técnicas
 
+## 2026-10-13 — Build de produção Windows x64
+
+`package.json` é a fonte da versão lida pelo Tauri; `Cargo.toml` é sincronizado por `npm run version:set -- <versão>`, e o build interrompe quando há divergência. `npm run build` executa as verificações e cria o NSIS e o executável portable, com checksums e metadados em `release/<versão>/`. O `identifier` permanece `com.eduardo.garimpolivre` para preservar o perfil de dados já usado pelo app.
+
+`withGlobalTauri` continua ativo porque os scripts injetados nas janelas WebView das lojas usam `window.__TAURI__.event` para transportar resultados ao app. A CSP configurada protege a interface local; as páginas remotas das lojas continuam sob as políticas próprias de cada site.
+
+O build local foi gerado e conferido, mas isso não substitui o aceite em ambiente limpo. Continua pendente executar no Windows Sandbox ou em outro PC: instalar sem administrador e abrir pelo Menu Iniciar; buscar um termo real nas três lojas e conferir persistência após reiniciar; instalar uma versão nova por cima; desinstalar sem apagar os dados; e abrir o portable usando a mesma pasta de dados.
+
 ## 2026-10-12 — v4: somente WebView
 
 Esta decisão substitui as estratégias de coleta e precificação descritas nas decisões v1–v3: as lojas são lidas por WebView, sem APIs, credenciais, conversão de moeda ou estimativa de importação. Só preço mostrado em reais participa do ranking; frete desconhecido continua nulo. Login e verificações ficam para a pessoa na janela visível. Os testes automáticos usam fixtures e não acessam lojas reais.

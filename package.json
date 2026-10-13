@@ -1,11 +1,17 @@
 {
   "name": "garimpo-livre",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "node scripts/build.mjs",
+    "build:web": "tsc --noEmit && vite build",
+    "build:fast": "node scripts/build.mjs --fast",
+    "version:set": "node scripts/version.mjs",
     "preview": "vite preview",
     "tauri": "node scripts/tauri.mjs",
     "test:extractor": "node --test tests/extractor.test.js tests/login-navigation.test.js tests/store-extractor.test.js tests/shopee-extractor.test.js tests/aliexpress-extractor.test.js tests/amazon-extractor.test.js tests/retail-extractor.test.js",

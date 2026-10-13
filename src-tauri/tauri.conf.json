@@ -1,12 +1,12 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "Garimpo Livre",
-  "version": "0.1.0",
+  "version": "../package.json",
   "identifier": "com.eduardo.garimpolivre",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "npm run build",
+    "beforeBuildCommand": "npm run build:web",
     "frontendDist": "../dist"
   },
   "app": {
@@ -21,17 +21,41 @@
       }
     ],
     "withGlobalTauri": true,
-    "security": { "csp": null }
+    "security": {
+      "csp": {
+        "default-src": "'self'",
+        "connect-src": ["ipc:", "http://ipc.localhost"],
+        "font-src": ["'self'", "data:"],
+        "img-src": ["'self'", "asset:", "http://asset.localhost", "blob:", "data:"],
+        "style-src": ["'self'", "'unsafe-inline'"]
+      }
+    }
   },
   "bundle": {
     "active": true,
-    "targets": "all",
+    "publisher": "Eduardo",
+    "copyright": "Copyright © 2026 Eduardo",
+    "shortDescription": "Compare ofertas de lojas em um só lugar.",
+    "longDescription": "Acompanhe buscas, compare ofertas e consulte o histórico de preços em lojas online.",
+    "category": "Utility",
+    "targets": ["nsis"],
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["PortugueseBR"],
+        "installerIcon": "icons/icon.ico"
+      },
+      "webviewInstallMode": {
+        "type": "embedBootstrapper",
+        "silent": true
+      }
+    }
   }
 }

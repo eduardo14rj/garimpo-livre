@@ -1,20 +1,10 @@
 import { spawn } from "node:child_process";
 import { configForDevPort, findAvailablePort, portAvailable } from "./tauri-dev-port.mjs";
-import { delimiter, dirname, join } from "node:path";
-import { homedir } from "node:os";
+import { tauriEnvironment } from "./tauri-env.mjs";
 import { fileURLToPath } from "node:url";
 
-const cargoBin = join(process.env.USERPROFILE || homedir(), ".cargo", "bin");
-const env = { ...process.env };
+const env = tauriEnvironment();
 const args = process.argv.slice(2);
-const pathKey = Object.keys(env).find((key) => key.toLowerCase() === "path") || "PATH";
-const paths = (env[pathKey] || "").split(delimiter).filter(Boolean);
-for (const directory of [cargoBin, dirname(process.execPath)]) {
-  if (!paths.some((entry) => entry.toLowerCase() === directory.toLowerCase())) {
-    paths.unshift(directory);
-  }
-}
-env[pathKey] = paths.join(delimiter);
 
 const hasExplicitConfig = args.some((argument) =>
   argument === "--config" || argument === "-c" || argument.startsWith("--config="),
