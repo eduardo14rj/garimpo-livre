@@ -31,5 +31,17 @@ export function gruposVisiveis(ranking: Ranking | null, loja: LojaId | "todas", 
     return ofertas.length ? [{...g,ofertas,principal:ofertas[0],score:ofertas[0].score}] : [];
   });
   for (const g of grupos) g.pareto=!grupos.some(b=>compararDinheiro(b.principal.oferta.preco_final_brl,g.principal.oferta.preco_final_brl)<=0 && b.principal.nota_bayesiana>=g.principal.nota_bayesiana && (compararDinheiro(b.principal.oferta.preco_final_brl,g.principal.oferta.preco_final_brl)<0 || b.principal.nota_bayesiana>g.principal.nota_bayesiana));
-  return grupos.sort((a,b)=> (ordem==="preco" ? compararDinheiro(a.principal.oferta.preco_final_brl,b.principal.oferta.preco_final_brl) : ordem==="nota" ? b.principal.nota_bayesiana-a.principal.nota_bayesiana : b.score-a.score) || a.chave.localeCompare(b.chave));
+  const compararAvaliacao=(a:Grupo,b:Grupo,direcao:"asc"|"desc")=> {
+    const notaA=a.principal.oferta.nota, notaB=b.principal.oferta.nota;
+    if(notaA===null) return notaB===null ? 0 : 1;
+    if(notaB===null) return -1;
+    const porNota=direcao==="asc" ? notaA-notaB : notaB-notaA;
+    return porNota || (b.principal.oferta.qtd_avaliacoes ?? -1)-(a.principal.oferta.qtd_avaliacoes ?? -1);
+  };
+  return grupos.sort((a,b)=> {
+    if(ordem==="preco") return compararDinheiro(a.principal.oferta.preco_final_brl,b.principal.oferta.preco_final_brl) || a.chave.localeCompare(b.chave);
+    if(ordem==="preco_desc") return compararDinheiro(b.principal.oferta.preco_final_brl,a.principal.oferta.preco_final_brl) || a.chave.localeCompare(b.chave);
+    if(ordem==="avaliacao_asc" || ordem==="avaliacao_desc") return compararAvaliacao(a,b,ordem==="avaliacao_asc" ? "asc" : "desc") || a.chave.localeCompare(b.chave);
+    return (ordem==="nota" ? b.principal.nota_bayesiana-a.principal.nota_bayesiana : b.score-a.score) || a.chave.localeCompare(b.chave);
+  });
 }
