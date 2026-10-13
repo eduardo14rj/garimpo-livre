@@ -1,0 +1,34 @@
+[
+  {
+    "id_externo": "ssd-kingston-nv2-1tb",
+    "titulo": "SSD Kingston NV2 1TB NVMe",
+    "url": "https://www.pichau.com.br/ssd-kingston-nv2-1tb",
+    "preco": "379.90",
+    "frete": "0",
+    "preco_parcelado": "429.90",
+    "gtin": "0740617329919",
+    "modelo": "SNV2S/1000G",
+    "marca": "Kingston",
+    "vendedor": "Pichau",
+    "venda_direta": true,
+    "condicao": "new",
+    "nota": 4.8,
+    "qtd_avaliacoes": 120
+  },
+  {
+    "id_externo": "ssd-kingston-nv2-500gb",
+    "titulo": "SSD Kingston NV2 500GB NVMe",
+    "url": "https://www.pichau.com.br/ssd-kingston-nv2-500gb",
+    "preco": "219.90",
+    "frete": null,
+    "preco_parcelado": "249.90",
+    "gtin": "0740617329896",
+    "modelo": "SNV2S/500G",
+    "marca": "Kingston",
+    "vendedor": "Pichau",
+    "venda_direta": true,
+    "condicao": "new",
+    "nota": 4.5,
+    "qtd_avaliacoes": 12
+  }
+]

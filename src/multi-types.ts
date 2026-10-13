@@ -1,0 +1,14 @@
+export type LojaId = "ml" | "ebay" | "amazon" | "shopee" | "aliexpress" | "kabum" | "pichau";
+export type Pesos = { preco: number; nota: number; vendedor: number; relevancia: number };
+export type Busca = { termo: string; lojas: LojaId[]; preco_max: string | number | null; condicao: string; obrigatorio: string[]; proibido: string[]; min_avaliacoes: number; pesos: Pesos };
+export type ArquivoBusca = { slug: string; config: Busca };
+export type Loja = { id: LojaId; nome: string; ativa: boolean; padrao: boolean };
+export type Status = { estado: "ok" } | { estado: "desativada" } | { estado: "falhou"; erro: string } | { estado: "degradado"; fonte: string; capturado_em: string | null };
+export type Oferta = { id: string; loja: LojaId; titulo: string; url: string; gtin: string | null; modelo: string | null; marca: string | null; preco_brl: string; frete_brl: string | null; preco_final_brl: string; nota: number | null; qtd_avaliacoes: number | null; vendas: number | null; reputacao: number | null; condicao: string; vendedor: string; preco_variavel: boolean; preco_parcelado: string | null };
+export type Comparada = { oferta: Oferta; nota_bayesiana: number; votos_confianca: number; confianca_por_vendas: boolean; relevancia: number; suspeito: boolean; avisos: string[]; score: number };
+export type Grupo = { chave: string; principal: Comparada; ofertas: Comparada[]; score: number; pareto: boolean };
+export type Ranking = { busca: string; executada_em: string; demonstracao: boolean; anuncios_coletados: number; anuncios_filtrados: number; excluidos: Record<string, number>; produtos: Grupo[]; status: Partial<Record<LojaId, Status>> };
+export type Credencial = { loja: LojaId; identificador: string; segredo_salvo: boolean; opcoes: Record<string, string> };
+export type Saude = { loja: LojaId; fonte: string; estadoCircuito: string; sucesso7d: number; tentativas7d: number; ultimaFalha: string | null; atualizadoEm: string | null };
+export type Historico = { entidade: string; pontos: { data: string; produto_id: string; loja: LojaId; preco_final_brl: string }[]; minima_30d: string | null; media_movel_7d: string | null; dias_observados_30d: number; alerta_minima: boolean };
+export type Preferencias = { fonte: string; intervalo_coleta_segundos: number; coleta_periodica_minutos: number; pesos_padrao: Pesos };

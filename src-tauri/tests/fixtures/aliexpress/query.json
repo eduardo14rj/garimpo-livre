@@ -1,0 +1,41 @@
+{
+  "aliexpress_affiliate_product_query_response": {
+    "resp_result": {
+      "resp_code": 200,
+      "resp_msg": "success",
+      "result": {
+        "current_page_no": 1,
+        "total_page_no": 1,
+        "total_record_count": 2,
+        "products": { "product": [
+          {
+            "product_id": 1005001001,
+            "product_title": "SSD Kingston NV2 1TB NVMe",
+            "product_detail_url": "https://www.aliexpress.com/item/1005001001.html",
+            "sale_price": "40.00",
+            "sale_price_currency": "USD",
+            "target_sale_price": "200.00",
+            "target_sale_price_currency": "BRL",
+            "app_sale_price": "35.00",
+            "app_sale_price_currency": "USD",
+            "evaluate_rate": "98.5%",
+            "lastest_volume": 300,
+            "shop_id": 2001,
+            "shop_name": "Hardware Fixture"
+          },
+          {
+            "product_id": "1005001002",
+            "product_title": "SSD Kingston NV2 500GB NVMe",
+            "product_detail_url": "https://www.aliexpress.com/item/1005001002.html",
+            "sale_price": "25.123456789",
+            "sale_price_currency": "USD",
+            "evaluate_rate": "100%",
+            "lastest_volume": 2,
+            "shop_id": 2002,
+            "shop_name": "Pequena Loja Fixture"
+          }
+        ] }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "searchResult": {
+    "totalResultCount": 2,
+    "items": [
+      {
+        "asin": "B0B25LZGGW",
+        "detailPageURL": "https://www.amazon.com.br/dp/B0B25LZGGW",
+        "itemInfo": {"title":{"displayValue":"SSD Kingston NV2 1TB NVMe"},
+          "byLineInfo":{"brand":{"displayValue":"Kingston"}},
+          "manufactureInfo":{"model":{"displayValue":"SNV2S/1000G"}},
+          "externalIds":{"eans":{"displayValues":["0740617329919"]}}},
+        "offersV2":{"listings":[{"price":{"money":{"amount":389.123456789,"currency":"BRL"}},
+          "merchantInfo":{"name":"Amazon.com.br"},"condition":{"value":"New"},
+          "availability":{"type":"IN_STOCK"}}]},
+        "_garimpo":{"vendido_amazon":true,"enviado_amazon":true,"nota":4.8,"qtd_avaliacoes":120,"frete":"0"}
+      },
+      {
+        "asin": "B0B25M8FXX",
+        "detailPageURL": "https://www.amazon.com.br/dp/B0B25M8FXX",
+        "itemInfo":{"title":{"displayValue":"SSD Kingston NV2 500GB NVMe"}},
+        "offersV2":{"listings":[{"price":{"money":{"amount":"219.90","currency":"BRL"}},
+          "merchantInfo":{"name":"Loja Fixture"},"condition":{"value":"New"}}]},
+        "_garimpo":{"vendido_amazon":false,"enviado_amazon":true,"nota":4.5,"qtd_avaliacoes":12}
+      }
+    ]
+  }
+}

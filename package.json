@@ -1,0 +1,34 @@
+{
+  "name": "garimpo-livre",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "node scripts/tauri.mjs",
+    "test:extractor": "node --test tests/extractor.test.js tests/login-navigation.test.js tests/store-extractor.test.js tests/shopee-extractor.test.js tests/aliexpress-extractor.test.js tests/amazon-extractor.test.js tests/retail-extractor.test.js",
+    "test:login": "node --test tests/login-navigation.test.js",
+    "test:dev-port": "node --test tests/tauri-dev-port.test.js",
+    "test:ui": "node --test tests/multi-ui.test.js",
+    "test:multi": "node scripts/test-multi.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@remixicon/react": "^4.9.0",
+    "@tauri-apps/api": "^2",
+    "@tauri-apps/plugin-opener": "^2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^6.0.2",
+    "jsdom": "^29.1.1",
+    "typescript": "~6.0.3",
+    "vite": "^8.0.16"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "total": 2,
+  "limit": 50,
+  "offset": 0,
+  "itemSummaries": [
+    { "itemId": "v1|1001|0", "title": "Kingston NV2 SSD 1TB", "itemWebUrl": "https://www.ebay.com/itm/1001", "price": {"value":"40.00","currency":"BRL"}, "condition":"New", "conditionId":"1000", "seller":{"username":"Fixture Hardware", "feedbackPercentage":"99.8", "feedbackScore":1000}, "shippingOptions":[{"shippingCostType":"FIXED","shippingCost":{"value":"0.00","currency":"BRL"}}] },
+    { "itemId": "v1|1002|0", "title": "Kingston NV2 SSD 500GB", "itemWebUrl": "https://www.ebay.com/itm/1002", "price": {"value":"25.123456789","currency":"BRL"}, "condition":"Used", "conditionId":"3000", "seller":{"username":"Fixture Parts", "feedbackPercentage":"100.0", "feedbackScore":2} }
+  ]
+}

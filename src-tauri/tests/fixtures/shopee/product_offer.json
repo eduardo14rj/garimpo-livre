@@ -1,0 +1,35 @@
+{
+  "data": {
+    "productOfferV2": {
+      "nodes": [
+        {
+          "itemId": 1001,
+          "shopId": 2001,
+          "productName": "SSD Kingston NV2 1TB NVMe",
+          "productLink": "https://shopee.com.br/SSD-Kingston-NV2-1TB-i.2001.1001",
+          "offerLink": "https://shope.ee/fixture1",
+          "priceMin": "289.123456789",
+          "priceMax": "329.99",
+          "ratingStar": "4.8",
+          "sales": 320,
+          "shopName": "Hardware Fixture",
+          "shopType": [1]
+        },
+        {
+          "itemId": 1002,
+          "shopId": 2002,
+          "productName": "SSD Kingston NV2 500GB NVMe",
+          "productLink": "https://shopee.com.br/product/2002/1002",
+          "offerLink": "https://shope.ee/fixture2",
+          "priceMin": "179.90",
+          "priceMax": "179.90",
+          "ratingStar": "0",
+          "sales": 0,
+          "shopName": "Pequena Loja Fixture",
+          "shopType": []
+        }
+      ],
+      "pageInfo": { "page": 1, "limit": 50, "hasNextPage": false }
+    }
+  }
+}

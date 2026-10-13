@@ -1,0 +1,32 @@
+{
+  "site_id": "MLB",
+  "query": "fone bluetooth",
+  "paging": { "total": 2, "limit": 50, "offset": 0 },
+  "results": [
+    {
+      "id": "MLB9001",
+      "title": "Fone Bluetooth ANC Premium",
+      "price": 249.9,
+      "original_price": 299.9,
+      "permalink": "https://www.mercadolivre.com.br/fone-anc/p/MLB9001",
+      "condition": "new",
+      "seller_id": 12345,
+      "seller": {
+        "id": 12345,
+        "nickname": "Loja Oficial",
+        "seller_reputation": { "transactions": { "ratings": { "positive": 0.98 } } }
+      },
+      "reviews": { "rating_average": 4.8, "total": 1250 }
+    },
+    {
+      "id": "MLB9002",
+      "title": "Fone Bluetooth Econômico",
+      "price": 99.9,
+      "permalink": "https://www.mercadolivre.com.br/fone-economico/p/MLB9002",
+      "condition": "new",
+      "seller_id": 67890,
+      "seller": { "id": 67890, "nickname": "Audio Mix" },
+      "reviews": { "rating_average": 4.2, "total": 80 }
+    }
+  ]
+}

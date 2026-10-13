@@ -1,0 +1,9 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "stores",
+  "description": "Somente eventos do extrator em janelas de coleta por loja",
+  "windows": ["store-collector-ebay-*", "store-collector-shopee-*", "store-collector-aliexpress-*", "store-collector-amazon-*", "store-collector-kabum-*", "store-collector-pichau-*"],
+  "local": false,
+  "remote": {"urls": ["https://ebay.com/*", "https://*.ebay.com/*", "https://shopee.com.br/*", "https://*.shopee.com.br/*", "https://aliexpress.com/*", "https://*.aliexpress.com/*", "https://aliexpress.us/*", "https://*.aliexpress.us/*", "https://amazon.com.br/*", "https://*.amazon.com.br/*", "https://kabum.com.br/*", "https://*.kabum.com.br/*", "https://pichau.com.br/*", "https://*.pichau.com.br/*"]},
+  "permissions": ["core:event:allow-emit"]
+}
